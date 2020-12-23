@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>online chat room</title>
+</head>
+<body>
+    <input type="text" id="message">
+    <input type="button" value="send message" onclick="sendMsg()">
+
+    received messaged:
+    <p id="server_message" style="background-color: aliceblue"></p>
+
+    <script>
+        var websocket = null;
+        if(window.WebSocket){
+            websocket = new WebSocket("ws://127.0.0.1:9001/ws");
+
+            websocket.onopen = function (){
+                console.log("connected.");
+            }
+            websocket.onclose = function (){
+                console.log("closed");
+            }
+            websocket.onmessage = function (e){
+                console.log("received server message: " + e.data);
+                var server_message = document.getElementById("server_message");
+                server_message.innerHTML += e.data + "<br/>";
+            }
+        }
+        else {
+            alert("current web not support web socket");
+        }
+
+        function sendMsg(){
+            var message = document.getElementById("message");
+            websocket.send(message.value);
+        }
+    </script>
+</body>
+</html>
