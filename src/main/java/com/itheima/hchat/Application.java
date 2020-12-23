@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan(basePackages = "com.itheima.hchat.mapper")
+@MapperScan(basePackages = "com.itheima.hchat")
 public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class);
