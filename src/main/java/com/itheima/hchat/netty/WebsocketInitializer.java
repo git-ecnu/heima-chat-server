@@ -26,7 +26,7 @@ public class WebsocketInitializer extends ChannelInitializer<SocketChannel> {
         // 对HttpMessage进行聚合，聚合成FullHttpRequest或者FullHttpResponse
         // 在netty编程中都会使用到Handler
         pipeline.addLast(new HttpObjectAggregator(1024 * 64));
-
+        pipeline.addLast(new WebSocketServerProtocolHandler("/ws"));
 
         // 添加自定义的handler
         pipeline.addLast(new ChatHandler());
