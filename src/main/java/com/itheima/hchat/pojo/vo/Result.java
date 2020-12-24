@@ -5,9 +5,9 @@ public class Result {
     private String message;
     private Object result;
 
-    public Result(boolean success, Object result) {
+    public Result(boolean success, String message) {
         this.success = success;
-        this.result = result;
+        this.message = message;
     }
 
     public Result(boolean success, String message, Object result) {

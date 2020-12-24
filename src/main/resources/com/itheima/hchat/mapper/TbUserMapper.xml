@@ -289,5 +289,19 @@
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
+  <update id="updateByPrimaryKey" parameterType="com.itheima.hchat.pojo.TbUser" >
+    update tb_user
+    set username = #{username,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      pic_small = #{picSmall,jdbcType=VARCHAR},
+      pic_normal = #{picNormal,jdbcType=VARCHAR},
+      nickname = #{nickname,jdbcType=VARCHAR},
+      qrcode = #{qrcode,jdbcType=VARCHAR},
+      client_id = #{clientId,jdbcType=VARCHAR},
+      sign = #{sign,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=DATE},
+      phone = #{phone,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
 
 </mapper>

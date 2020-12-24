@@ -11,6 +11,8 @@ public class User {
     private String qrcode;
     private String clientId;
     private String sign;
+    private Date createtime;
+    private String phone;
 
     public String getId() {
         return id;
@@ -92,6 +94,12 @@ public class User {
         this.phone = phone;
     }
 
-    private Date createtime;
-    private String phone;
+    @Override
+    public String toString() {
+        return "User{" +
+                "username='" + username + '\'' +
+                ", picSmall='" + picSmall + '\'' +
+                ", picNormal='" + picNormal + '\'' +
+                '}';
+    }
 }
