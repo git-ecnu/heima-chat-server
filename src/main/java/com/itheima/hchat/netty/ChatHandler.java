@@ -33,6 +33,7 @@ public class ChatHandler extends SimpleChannelInboundHandler<TextWebSocketFrame>
 
     @Override
     public void handlerAdded(ChannelHandlerContext ctx) throws Exception {
+        System.out.println("收到新的连接");
         clients.add(ctx.channel());
     }
 }
