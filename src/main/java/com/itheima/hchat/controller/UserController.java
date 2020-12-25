@@ -68,5 +68,24 @@ public class UserController {
         }
     }
 
+    @RequestMapping("/updateNickname")
+    public Result updateNickname(@RequestBody TbUser user) {
+        try {
+            userService.updateNickname(user.getId(), user.getNickname());
+            return new Result(true, "更新成功");
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+            return new Result(false, e.getMessage());
+        }catch (Exception e) {
+            e.printStackTrace();
+            return new Result(false,"更新失败");
+        }
+    }
+
+    @RequestMapping("/findByID")
+    public User findById(String userid){
+        System.out.println("findByID");
+        return userService.findByID(userid);
+    }
 
 }

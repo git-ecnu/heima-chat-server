@@ -113,4 +113,27 @@ public class UserServiceImpl implements UserService {
             return null;
         }
     }
+
+    @Override
+    public void updateNickname(String id, String nickname) {
+        if(StringUtils.isNotBlank(nickname)){
+            TbUser tbUser = userMapper.selectByPrimaryKey(id);
+            tbUser.setNickname(nickname);
+            userMapper.updateByPrimaryKey(tbUser);
+
+        }
+        else {
+            throw new RuntimeException("昵称不能为空");
+        }
+
+    }
+
+    @Override
+    public User findByID(String userid) {
+        System.out.println("findByID");
+        TbUser tbUser = userMapper.selectByPrimaryKey(userid);
+        User user = new User();
+        BeanUtils.copyProperties(tbUser, user);
+        return user;
+    }
 }

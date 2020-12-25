@@ -14,4 +14,10 @@ public interface UserService {
     void register(TbUser user);
 
     User upload(MultipartFile file, String userid);
+
+
+
+    void updateNickname(String id, String nickname);
+
+    User findByID(String userid);
 }
