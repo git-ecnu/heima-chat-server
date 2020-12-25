@@ -82,10 +82,10 @@ public class UserController {
         }
     }
 
-    @RequestMapping("/findByID")
+    @RequestMapping("/findById")
     public User findById(String userid){
-        System.out.println("findByID");
         return userService.findByID(userid);
     }
 
 }
+

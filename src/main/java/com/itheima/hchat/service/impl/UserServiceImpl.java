@@ -66,7 +66,6 @@ public class UserServiceImpl implements UserService {
         try {
             TbUserExample example = new TbUserExample();
             TbUserExample.Criteria criteria = example.createCriteria();
-
             criteria.andUsernameEqualTo(user.getUsername());
             List<TbUser> userList = userMapper.selectByExample(example);
             if(userList != null & userList.size()>0){
@@ -130,7 +129,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findByID(String userid) {
-        System.out.println("findByID");
         TbUser tbUser = userMapper.selectByPrimaryKey(userid);
         User user = new User();
         BeanUtils.copyProperties(tbUser, user);

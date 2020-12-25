@@ -69,7 +69,6 @@ public class TbUserExample {
         protected List<Criterion> criteria;
 
         protected GeneratedCriteria() {
-            super();
             criteria = new ArrayList<Criterion>();
         }
 
